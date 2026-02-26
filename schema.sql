@@ -5,5 +5,6 @@ CREATE TABLE IF NOT EXISTS bookings (
   size TEXT NOT NULL,
   quantity INTEGER NOT NULL,
   address TEXT NOT NULL,
+  transfer_ref TEXT,
   created_at TEXT NOT NULL
 );

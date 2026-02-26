@@ -6,6 +6,7 @@
   "size": "Skjortestørrelse",
   "quantity": "Antal",
   "address": "Forsendelsesadresse",
+  "transfer_ref": "Overførselsreferencenummer",
   "submit": "Bekræft bestilling",
   "success": "Bestilling vellykket! Vi kontakter dig snart.",
   "select_size": "Vælg størrelse",
@@ -13,5 +14,9 @@
   "size_m": "M",
   "size_l": "L",
   "size_xl": "XL",
-  "size_xxl": "XXL"
+  "size_xxl": "XXL",
+  "add_item": "Tilføj til liste",
+  "items_list": "Valgte varer",
+  "remove": "Fjern",
+  "no_items": "Ingen varer tilføjet endnu"
 }

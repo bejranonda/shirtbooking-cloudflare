@@ -6,6 +6,7 @@
   "size": "Shirt Size",
   "quantity": "Quantity",
   "address": "Shipping Address",
+  "transfer_ref": "Transfer Reference Number",
   "submit": "Confirm Booking",
   "success": "Booking successful! We will contact you soon.",
   "select_size": "Select Size",
@@ -13,5 +14,9 @@
   "size_m": "M",
   "size_l": "L",
   "size_xl": "XL",
-  "size_xxl": "XXL"
+  "size_xxl": "XXL",
+  "add_item": "Add to List",
+  "items_list": "Selected Items",
+  "remove": "Remove",
+  "no_items": "No items added yet"
 }

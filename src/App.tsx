@@ -9,22 +9,40 @@ function App() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    size: '',
-    quantity: 1,
-    address: ''
+    address: '',
+    transferRef: ''
   });
+  const [items, setItems] = useState<{ size: string; quantity: number }[]>([]);
+  const [currentItem, setCurrentItem] = useState({ size: '', quantity: 1 });
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   };
 
+  const addItem = () => {
+    if (currentItem.size && currentItem.quantity > 0) {
+      setItems([...items, { ...currentItem }]);
+      setCurrentItem({ size: '', quantity: 1 });
+    } else {
+      alert('Please select size and quantity');
+    }
+  };
+
+  const removeItem = (index: number) => {
+    setItems(items.filter((_, i) => i !== index));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (items.length === 0) {
+      alert('Please add at least one item');
+      return;
+    }
     try {
       const response = await fetch('/api/book', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({ ...formData, items })
       });
       if (response.ok) {
         setSubmitted(true);
@@ -42,6 +60,11 @@ function App() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleItemChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setCurrentItem(prev => ({ ...prev, [name]: name === 'quantity' ? parseInt(value) || 0 : value }));
+  };
+
   if (submitted) {
     return (
       <div className="success-container">
@@ -56,7 +79,7 @@ function App() {
     <div className="app-container">
       <header className="header">
         <div className="logo-container">
-          <img src="https://thalay.eu/wp-content/uploads/2021/07/The-Forward-Logo.png" alt="The Forward Logo" className="logo" />
+          <img src="https://thalay.eu/wp-content/uploads/2021/07/theForwardRectan2.png" alt="The Forward Logo" className="logo" />
         </div>
         <div className="lang-switcher">
           <button onClick={() => changeLanguage('th')} title="Thai">🇹🇭</button>
@@ -78,6 +101,7 @@ function App() {
             <input 
               type="text" 
               name="name" 
+              value={formData.name}
               required 
               placeholder={t('name')} 
               onChange={handleInputChange}
@@ -89,16 +113,21 @@ function App() {
             <input 
               type="tel" 
               name="phone" 
+              value={formData.phone}
               required 
               placeholder={t('phone')} 
               onChange={handleInputChange}
             />
           </div>
 
-          <div className="form-row">
+          <div className="form-row items-input-row">
             <div className="form-group">
               <label><Shirt size={18} /> {t('size')}</label>
-              <select name="size" required onChange={handleInputChange}>
+              <select 
+                name="size" 
+                value={currentItem.size} 
+                onChange={handleItemChange}
+              >
                 <option value="">{t('select_size')}</option>
                 <option value="S">{t('size_s')}</option>
                 <option value="M">{t('size_m')}</option>
@@ -114,17 +143,39 @@ function App() {
                 type="number" 
                 name="quantity" 
                 min="1" 
-                defaultValue="1" 
-                required 
-                onChange={handleInputChange}
+                value={currentItem.quantity}
+                onChange={handleItemChange}
               />
             </div>
+            
+            <button type="button" onClick={addItem} className="add-item-btn">
+              {t('add_item')}
+            </button>
+          </div>
+
+          <div className="items-list-container">
+            <h3>{t('items_list')}</h3>
+            {items.length === 0 ? (
+              <p className="no-items">{t('no_items')}</p>
+            ) : (
+              <ul className="items-list">
+                {items.map((item, index) => (
+                  <li key={index} className="item-entry">
+                    <span>{t(`size_${item.size.toLowerCase()}`)} x {item.quantity}</span>
+                    <button type="button" onClick={() => removeItem(index)} className="remove-btn">
+                      {t('remove')}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
 
           <div className="form-group">
             <label><MapPin size={18} /> {t('address')}</label>
             <textarea 
               name="address" 
+              value={formData.address}
               rows={3} 
               required 
               placeholder={t('address')} 
@@ -132,7 +183,20 @@ function App() {
             ></textarea>
           </div>
 
-          <button type="submit" className="submit-btn">{t('submit')}</button>
+          <div className="form-group">
+            <label>{t('transfer_ref')}</label>
+            <input 
+              type="text" 
+              name="transferRef" 
+              value={formData.transferRef}
+              placeholder={t('transfer_ref')} 
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <button type="submit" className="submit-btn" disabled={items.length === 0}>
+            {t('submit')}
+          </button>
         </form>
       </main>
 

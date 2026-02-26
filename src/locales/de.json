@@ -6,6 +6,7 @@
   "size": "Hemdgröße",
   "quantity": "Menge",
   "address": "Versandadresse",
+  "transfer_ref": "Überweisungsreferenznummer",
   "submit": "Buchung bestätigen",
   "success": "Buchung erfolgreich! Wir werden Sie bald kontaktieren.",
   "select_size": "Größe wählen",
@@ -13,5 +14,9 @@
   "size_m": "M",
   "size_l": "L",
   "size_xl": "XL",
-  "size_xxl": "XXL"
+  "size_xxl": "XXL",
+  "add_item": "Zur Liste hinzufügen",
+  "items_list": "Ausgewählte Artikel",
+  "remove": "Entfernen",
+  "no_items": "Noch keine Artikel hinzugefügt"
 }

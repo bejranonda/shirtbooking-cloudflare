@@ -140,6 +140,89 @@ input:focus, select:focus, textarea:focus {
   transform: translateY(-2px);
 }
 
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.items-input-row {
+  grid-template-columns: 2fr 1fr auto;
+  align-items: flex-end;
+}
+
+.add-item-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-item-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.items-list-container {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: var(--radius);
+  border: 1px dashed #ccc;
+}
+
+.items-list-container h3 {
+  font-size: 0.9rem;
+  margin: 0 0 10px 0;
+  color: var(--secondary);
+}
+
+.no-items {
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+  margin: 0;
+}
+
+.items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.item-entry span {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.item-entry:last-child {
+  border-bottom: none;
+}
+
+.remove-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #cc0000;
+}
+
 .submit-btn:active {
   transform: translateY(0);
 }
