@@ -194,7 +194,7 @@ function App() {
     <div className="app-container">
       <header className="header">
         <div className="logo-container">
-          <img src="https://thalay.eu/wp-content/uploads/2021/07/theForwardRectan2.png" alt="The Forward Logo" className="logo" />
+          <img src="/logo.png" alt="The Forward Logo" className="logo" />
         </div>
         <div className="lang-switcher">
           <button onClick={() => changeLanguage('th')} title="Thai">
