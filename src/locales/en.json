@@ -7,6 +7,7 @@
   "size_xl_desc": "XL: Chest 48\", Length 28\"",
   "name": "Full Name",
   "phone": "Phone Number",
+  "email": "Email Address",
   "size": "Shirt Size",
   "quantity": "Quantity",
   "address": "Shipping Address",

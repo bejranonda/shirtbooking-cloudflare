@@ -7,10 +7,10 @@ A modern, high-performance web application for booking exclusive shirt collectio
 - **Modern Premium UI**: Redesigned with a clean, iOS-inspired aesthetic, featuring glassmorphism effects, smooth animations, and a sophisticated color palette.
 - **Multilingual Support**: Fully localized in Thai (🇹🇭), English (🇺🇸), German (🇩🇪), and Danish (🇩🇰).
 - **Mobile Optimized**: Optimized for all devices with specific fixes for mobile input behavior.
+- **Comprehensive Booking Form**: Captures Name, Phone, **Email**, Size, Quantity, Address, and Payment Reference.
 - **Multiple Item Booking**: Users can add various sizes and quantities to a single order.
-- **Payment Verification**: Dedicated field for bank transfer reference numbers.
 - **Admin Dashboard**: Secured area at `/admin` for order management and real-time monitoring.
-- **One-Click Export**: Export order data to Excel-compatible CSV format.
+- **One-Click Export**: Export order data to Excel-compatible CSV format including all customer details.
 
 ## Tech Stack
 

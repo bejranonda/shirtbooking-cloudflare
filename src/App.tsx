@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Shirt, Phone, User, MapPin, CheckCircle, Globe, Youtube, Facebook, Download, Lock, RefreshCw, CreditCard } from 'lucide-react';
+import { Shirt, Phone, User, MapPin, CheckCircle, Globe, Youtube, Facebook, Download, Lock, RefreshCw, CreditCard, Mail } from 'lucide-react';
 import './App.css';
 
 function AdminPanel() {
@@ -30,13 +30,14 @@ function AdminPanel() {
   const exportToCSV = () => {
     if (bookings.length === 0) return;
     
-    const headers = ['ID', 'Name', 'Phone', 'Size', 'Quantity', 'Address', 'Transfer Ref', 'Date'];
+    const headers = ['ID', 'Name', 'Phone', 'Email', 'Size', 'Quantity', 'Address', 'Transfer Ref', 'Date'];
     const csvRows = [
       headers.join(','),
       ...bookings.map(b => [
         b.id,
         `"${b.name}"`,
         `"${b.phone}"`,
+        `"${b.email || ''}"`,
         b.size,
         b.quantity,
         `"${b.address.replace(/\n/g, ' ')}"`,
@@ -99,7 +100,8 @@ function AdminPanel() {
                 <td>{new Date(b.created_at).toLocaleDateString()}</td>
                 <td>
                   <strong>{b.name}</strong><br/>
-                  <small>{b.phone}</small>
+                  <small>{b.phone}</small><br/>
+                  <small style={{color: 'var(--secondary)'}}>{b.email}</small>
                 </td>
                 <td>{b.size} x {b.quantity}</td>
                 <td><small>{b.transfer_ref}</small></td>
@@ -120,6 +122,7 @@ function App() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
+    email: '',
     address: '',
     transferRef: ''
   });
@@ -246,6 +249,18 @@ function App() {
               value={formData.phone}
               required 
               placeholder={t('phone')} 
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label><Mail size={18} /> {t('email')}</label>
+            <input 
+              type="email" 
+              name="email" 
+              value={formData.email}
+              required 
+              placeholder={t('email')} 
               onChange={handleInputChange}
             />
           </div>

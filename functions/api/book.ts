@@ -2,9 +2,9 @@ export async function onRequestPost(context) {
   try {
     const { request, env } = context;
     const body = await request.json();
-    const { name, phone, items, address, transferRef } = body;
+    const { name, phone, email, items, address, transferRef } = body;
 
-    if (!name || !phone || !items || !items.length || !address) {
+    if (!name || !phone || !email || !items || !items.length || !address) {
       return new Response(JSON.stringify({ error: 'Missing required fields' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
@@ -13,11 +13,11 @@ export async function onRequestPost(context) {
 
     // Insert into D1 using batch
     const stmt = env.DB.prepare(
-      'INSERT INTO bookings (name, phone, size, quantity, address, transfer_ref, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)'
+      'INSERT INTO bookings (name, phone, email, size, quantity, address, transfer_ref, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
     );
 
     const batch = items.map(item => 
-      stmt.bind(name, phone, item.size, item.quantity, address, transferRef || null, new Date().toISOString())
+      stmt.bind(name, phone, email, item.size, item.quantity, address, transferRef || null, new Date().toISOString())
     );
 
     await env.DB.batch(batch);
