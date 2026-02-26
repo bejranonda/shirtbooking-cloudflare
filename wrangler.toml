@@ -1,5 +1,10 @@
 name = "shirtbooking"
 pages_build_output_dir = "dist"
 
+[[d1_databases]]
+binding = "DB"
+database_name = "shirtbooking_db"
+database_id = "af3fca8b-3c7e-4846-8332-f42eb030c8d6"
+
 [ai]
 binding = "AI"
