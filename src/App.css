@@ -144,6 +144,14 @@ input, select, textarea {
   border-radius: var(--radius);
   font-size: 1rem;
   transition: border-color 0.3s, box-shadow 0.3s;
+  /* Prevent iOS zoom on focus */
+  appearance: none;
+}
+
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px; 
+  }
 }
 
 input:focus, select:focus, textarea:focus {
@@ -394,8 +402,60 @@ input:focus, select:focus, textarea:focus {
   to { transform: rotate(360deg); }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .app-container {
     box-shadow: none;
+  }
+
+  .main-content {
+    padding: 20px 15px;
+  }
+
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .items-input-row {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .add-item-btn {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .admin-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .refresh-btn, .export-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .bookings-table {
+    font-size: 0.8rem;
+  }
+
+  .bookings-table th, .bookings-table td {
+    padding: 10px 8px;
+  }
+
+  .item-entry span {
+    font-size: 0.85rem;
   }
 }
