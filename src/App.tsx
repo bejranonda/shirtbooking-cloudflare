@@ -13,7 +13,7 @@ function AdminPanel() {
   const fetchBookings = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/admin/bookings?pw=${password}`);
+      const response = await fetch(`/api/admin/bookings?pw=${encodeURIComponent(password)}`);
       if (response.ok) {
         const data = await response.json();
         setBookings(data);
