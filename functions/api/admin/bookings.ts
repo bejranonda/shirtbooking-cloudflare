@@ -4,8 +4,10 @@ export async function onRequestGet(context) {
     const url = new URL(request.url);
     const password = url.searchParams.get('pw');
 
-    // Simple password check - you can change 'admin1234' to your preferred password
-    if (password !== 'admin1234') {
+    // Use environment variable for security. Defaulting to a placeholder if not set.
+    const adminPassword = env.ADMIN_PASSWORD || 'ChangeMeInCloudflareDashboard';
+
+    if (password !== adminPassword) {
       return new Response(JSON.stringify({ error: 'Unauthorized' }), {
         status: 401,
         headers: { 'Content-Type': 'application/json' },
