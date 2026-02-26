@@ -43,7 +43,9 @@ body {
 }
 
 .logo {
-  height: 40px;
+  height: 80px;
+  width: auto;
+  object-fit: contain;
 }
 
 .lang-switcher button {
@@ -278,6 +280,90 @@ input:focus, select:focus, textarea:focus {
 .footer p {
   font-size: 0.8rem;
   color: #888;
+}
+
+/* Admin Styles */
+.admin-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+  background-color: var(--white);
+}
+
+.admin-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  min-height: 100vh;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #eee;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.refresh-btn, .export-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.refresh-btn {
+  background: #f0f2f5;
+  color: var(--text);
+}
+
+.export-btn {
+  background: #28a745;
+  color: white;
+}
+
+.bookings-table-wrapper {
+  overflow-x: auto;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.bookings-table th, .bookings-table td {
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.bookings-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @media (max-width: 500px) {

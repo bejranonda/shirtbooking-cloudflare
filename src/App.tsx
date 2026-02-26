@@ -1,10 +1,120 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Shirt, Phone, User, MapPin, CheckCircle, Globe, Youtube, Facebook } from 'lucide-react';
+import { Shirt, Phone, User, MapPin, CheckCircle, Globe, Youtube, Facebook, Download, Lock, RefreshCw } from 'lucide-react';
 import './App.css';
+
+function AdminPanel() {
+  const { t } = useTranslation();
+  const [password, setPassword] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [bookings, setBookings] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  const fetchBookings = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(`/api/admin/bookings?pw=${password}`);
+      if (response.ok) {
+        const data = await response.json();
+        setBookings(data);
+        setIsLoggedIn(true);
+      } else {
+        alert('Invalid Password');
+      }
+    } catch (error) {
+      alert('Error fetching data');
+    }
+    setLoading(false);
+  };
+
+  const exportToCSV = () => {
+    if (bookings.length === 0) return;
+    
+    const headers = ['ID', 'Name', 'Phone', 'Size', 'Quantity', 'Address', 'Transfer Ref', 'Date'];
+    const csvRows = [
+      headers.join(','),
+      ...bookings.map(b => [
+        b.id,
+        `"${b.name}"`,
+        `"${b.phone}"`,
+        b.size,
+        b.quantity,
+        `"${b.address.replace(/\n/g, ' ')}"`,
+        `"${b.transfer_ref || ''}"`,
+        b.created_at
+      ].join(','))
+    ];
+
+    const blob = new Blob([csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `bookings_${new Date().toISOString().split('T')[0]}.csv`;
+    link.click();
+  };
+
+  if (!isLoggedIn) {
+    return (
+      <div className="admin-login">
+        <Lock size={48} />
+        <h2>{t('admin_title')}</h2>
+        <input 
+          type="password" 
+          placeholder={t('password')} 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && fetchBookings()}
+        />
+        <button onClick={fetchBookings} className="submit-btn">{t('login')}</button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="admin-container">
+      <div className="admin-header">
+        <h2>{t('admin_title')} ({bookings.length})</h2>
+        <div className="admin-actions">
+          <button onClick={fetchBookings} className="refresh-btn" disabled={loading}>
+            <RefreshCw size={18} className={loading ? 'spin' : ''} />
+          </button>
+          <button onClick={exportToCSV} className="export-btn">
+            <Download size={18} /> {t('export_csv')}
+          </button>
+        </div>
+      </div>
+
+      <div className="bookings-table-wrapper">
+        <table className="bookings-table">
+          <thead>
+            <tr>
+              <th>{t('date')}</th>
+              <th>{t('name')}</th>
+              <th>{t('order_details')}</th>
+              <th>{t('transfer_ref')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bookings.map(b => (
+              <tr key={b.id}>
+                <td>{new Date(b.created_at).toLocaleDateString()}</td>
+                <td>
+                  <strong>{b.name}</strong><br/>
+                  <small>{b.phone}</small>
+                </td>
+                <td>{b.size} x {b.quantity}</td>
+                <td><small>{b.transfer_ref}</small></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   const { t, i18n } = useTranslation();
+  const [isAdmin, setIsAdmin] = useState(window.location.pathname === '/admin');
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -64,6 +174,10 @@ function App() {
     const { name, value } = e.target;
     setCurrentItem(prev => ({ ...prev, [name]: name === 'quantity' ? parseInt(value) || 0 : value }));
   };
+
+  if (isAdmin) {
+    return <AdminPanel />;
+  }
 
   if (submitted) {
     return (

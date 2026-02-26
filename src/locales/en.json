@@ -18,5 +18,11 @@
   "add_item": "Add to List",
   "items_list": "Selected Items",
   "remove": "Remove",
-  "no_items": "No items added yet"
+  "no_items": "No items added yet",
+  "admin_title": "Admin Dashboard",
+  "export_csv": "Download Excel (CSV)",
+  "password": "Password",
+  "login": "Login",
+  "date": "Date",
+  "order_details": "Order Details"
 }
