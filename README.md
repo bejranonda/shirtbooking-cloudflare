@@ -11,9 +11,9 @@ A modern, high-performance web application for booking the "Eat in Order" (ก�
 - **Multilingual Support**: Fully localized in Thai (🇹🇭), English (🇺🇸), German (🇩🇪), and Danish (🇩🇰).
 - **Multiple Item Booking**: Users can add various sizes and quantities to a single order.
 - **Payment Verification**: Dedicated field for bank transfer reference numbers.
-- **Admin Dashboard**: Secured area at `/admin` for order management.
-- **One-Click Export**: Export order data to Excel-compatible CSV format.
-- **Modern UI/UX**: Fast, responsive design with SVG flags for cross-platform consistency and branded favicon.
+- **Admin Dashboard**: Secured area at `/admin` for order management and real-time monitoring.
+- **One-Click Export**: Export order data to Excel-compatible CSV format with proper character encoding.
+- **Modern UI/UX**: Fast, responsive design with high-quality SVG flags and branded favicon.
 
 ## Tech Stack
 
@@ -25,15 +25,14 @@ A modern, high-performance web application for booking the "Eat in Order" (ก�
 ## Getting Started
 
 ### Local Development
-```bash
-npm install
-npm run dev
-```
+1. Install dependencies: `npm install`
+2. Create a `.dev.vars` file for local secrets: `ADMIN_PASSWORD=your_local_password`
+3. Run dev server: `npm run dev`
 
 ### Database Initialization
 Initialize your D1 database using the provided schema:
 ```bash
-npx wrangler d1 execute <DATABASE_NAME> --file=./schema.sql
+npx wrangler d1 execute <DATABASE_NAME> --remote --file=./schema.sql
 ```
 
 ### Deployment
@@ -44,11 +43,15 @@ npx wrangler pages deploy dist
 
 ## Admin Configuration
 The admin panel is located at `/admin`.
-- **Security**: The password has been set as a Cloudflare Secret (`ADMIN_PASSWORD`).
-- **Local Dev**: Use the `.dev.vars` file for local development.
+- **Security**: Access is controlled via the `ADMIN_PASSWORD` secret.
+- **Cloudflare Secrets**: Set your production password using:
+  ```bash
+  echo "your_password" | npx wrangler pages secret put ADMIN_PASSWORD --project-name <PROJECT_NAME>
+  ```
+- **Special Characters**: The system fully supports special characters (like `#`, `&`) in passwords through URL encoding.
 
 ## Project Structure
 - `src/`: React frontend source code.
-- `src/locales/`: Translation files for all supported languages.
-- `functions/api/`: Serverless API endpoints for booking and admin tasks.
-- `schema.sql`: SQL definition for the D1 database.
+- `src/locales/`: i18n translation files for all supported languages.
+- `functions/api/`: Serverless API endpoints (Bookings & Admin).
+- `schema.sql`: SQL definition for the D1 database tables.
