@@ -4,4 +4,7 @@ pages_build_output_dir = "dist"
 [[d1_databases]]
 binding = "DB"
 database_name = "shirtbooking_db"
-database_id = "to-be-created" # We will update this after creating the DB
+database_id = "to-be-created"
+
+[ai]
+binding = "AI"
