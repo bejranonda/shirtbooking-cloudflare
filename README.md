@@ -1,53 +1,53 @@
-# Shirt Booking System - The Forward
+# THE FORWARD - Shirt Booking System
 
-A modern, multilingual web application for booking exclusive shirts from "The Forward" collection. Built with React, TypeScript, Vite, and Cloudflare Pages/D1.
+A modern, high-performance web application for booking the "Eat in Order" (กินตามลำดับ) Limited Edition Oversized T-shirt collection. Built with React, TypeScript, and Cloudflare's serverless stack.
 
 ## Features
 
-- **Multilingual Support**: Available in Thai (🇹🇭), English (🇺🇸), German (🇩🇪), and Danish (🇩🇰).
-- **Multiple Item Booking**: Users can add multiple shirt sizes and quantities to a single booking list.
-- **Payment Verification**: Includes a field for bank transfer reference numbers to streamline payment verification.
-- **Admin Dashboard**: Secured administrative area to view orders and export data.
-- **Excel/CSV Export**: One-click export functionality for easy order management in Excel or Google Sheets.
-- **Responsive Design**: Optimized for both desktop and mobile devices.
-- **Serverless Backend**: Powered by Cloudflare Workers (Pages Functions) and D1 SQL database.
+- **Official Product Integration**: Integrated specifications for the "Eat in Order" collection:
+  - **Premium Fabric**: Double Layer (64% Cotton, 36% Recycled Polyester), 250g weight.
+  - **Eco-Friendly**: 100% biodegradable within 4.5 years.
+  - **Oversized Sizing**: M (Chest 40") and XL (Chest 48").
+- **Multilingual Support**: Fully localized in Thai (🇹🇭), English (🇺🇸), German (🇩🇪), and Danish (🇩🇰).
+- **Multiple Item Booking**: Users can add various sizes and quantities to a single order.
+- **Payment Verification**: Dedicated field for bank transfer reference numbers.
+- **Admin Dashboard**: Secured area at `/admin` for order management.
+- **One-Click Export**: Export order data to Excel-compatible CSV format.
+- **Modern UI/UX**: Fast, responsive design with SVG flags for cross-platform consistency and branded favicon.
 
 ## Tech Stack
 
-- **Frontend**: React, TypeScript, Vite, Lucide Icons, i18next.
-- **Backend**: Cloudflare Pages Functions.
+- **Frontend**: React 19, TypeScript, Vite, i18next, Lucide Icons.
+- **Backend**: Cloudflare Pages Functions (Serverless).
 - **Database**: Cloudflare D1 (SQLite).
-- **Styling**: Vanilla CSS with modern variables and flex/grid layouts.
+- **Styling**: Vanilla CSS with modern custom properties (Variables).
 
-## Admin Access
+## Getting Started
 
-The admin dashboard is accessible at `/admin`.
-- **Default Password**: `admin1234` (Configurable in `functions/api/admin/bookings.ts`)
+### Local Development
+```bash
+npm install
+npm run dev
+```
 
-## Setup & Deployment
+### Database Initialization
+Initialize your D1 database using the provided schema:
+```bash
+npx wrangler d1 execute <DATABASE_NAME> --file=./schema.sql
+```
 
-1. **Local Development**:
-   ```bash
-   npm install
-   npm run dev
-   ```
+### Deployment
+```bash
+npm run build
+npx wrangler pages deploy dist
+```
 
-2. **Database Setup**:
-   Initialize your D1 database using the provided `schema.sql`:
-   ```bash
-   npx wrangler d1 execute <DATABASE_NAME> --file=./schema.sql
-   ```
-
-3. **Cloudflare Deployment**:
-   ```bash
-   npm run build
-   npx wrangler pages deploy dist
-   ```
+## Admin Configuration
+The admin panel is located at `/admin`.
+- **Default Password**: `admin1234` (Update in `functions/api/admin/bookings.ts` for production).
 
 ## Project Structure
-
-- `src/`: React frontend application.
-- `functions/api/`: Backend API endpoints for booking and administration.
-- `src/locales/`: i18n translation files.
-- `schema.sql`: Database schema definition.
-- `wrangler.toml`: Cloudflare configuration.
+- `src/`: React frontend source code.
+- `src/locales/`: Translation files for all supported languages.
+- `functions/api/`: Serverless API endpoints for booking and admin tasks.
+- `schema.sql`: SQL definition for the D1 database.
