@@ -112,6 +112,7 @@ function AdminPanel() {
   );
 }
 
+// Main Application Component
 function App() {
   const { t, i18n } = useTranslation();
   const isAdmin = window.location.pathname === '/admin';
