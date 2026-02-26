@@ -13,6 +13,7 @@ A modern, high-performance web application for booking the "Eat in Order" (‡∏Å‡∏
 - **Payment Verification**: Dedicated field for bank transfer reference numbers.
 - **Admin Dashboard**: Secured area at `/admin` for order management and real-time monitoring.
 - **One-Click Export**: Export order data to Excel-compatible CSV format with proper character encoding.
+- **Mobile Optimization**: Fully responsive design with specific optimizations for iOS Safari to prevent input zooming and ensure a smooth experience.
 - **Modern UI/UX**: Fast, responsive design with high-quality SVG flags and branded favicon.
 
 ## Tech Stack
