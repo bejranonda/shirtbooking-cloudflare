@@ -51,10 +51,16 @@ body {
 .lang-switcher button {
   background: none;
   border: none;
-  font-size: 1.2rem;
   cursor: pointer;
   padding: 5px;
   transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.flag-icon {
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .lang-switcher button:hover {
@@ -82,6 +88,28 @@ body {
 .subtitle {
   color: var(--secondary);
   font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.product-info {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: var(--radius);
+  margin-top: 15px;
+  text-align: left;
+}
+
+.product-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.price-tag {
+  color: #d32f2f;
+  font-size: 1.1rem;
+  margin: 0;
 }
 
 .booking-form {

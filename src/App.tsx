@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Shirt, Phone, User, MapPin, CheckCircle, Globe, Youtube, Facebook, Download, Lock, RefreshCw } from 'lucide-react';
 import './App.css';
@@ -114,7 +114,7 @@ function AdminPanel() {
 
 function App() {
   const { t, i18n } = useTranslation();
-  const [isAdmin, setIsAdmin] = useState(window.location.pathname === '/admin');
+  const isAdmin = window.location.pathname === '/admin';
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -196,10 +196,18 @@ function App() {
           <img src="https://thalay.eu/wp-content/uploads/2021/07/theForwardRectan2.png" alt="The Forward Logo" className="logo" />
         </div>
         <div className="lang-switcher">
-          <button onClick={() => changeLanguage('th')} title="Thai">🇹🇭</button>
-          <button onClick={() => changeLanguage('en')} title="English">🇺🇸</button>
-          <button onClick={() => changeLanguage('de')} title="German">🇩🇪</button>
-          <button onClick={() => changeLanguage('dk')} title="Danish">🇩🇰</button>
+          <button onClick={() => changeLanguage('th')} title="Thai">
+            <img src="https://flagcdn.com/w40/th.png" alt="Thai" width="24" className="flag-icon" />
+          </button>
+          <button onClick={() => changeLanguage('en')} title="English">
+            <img src="https://flagcdn.com/w40/us.png" alt="English" width="24" className="flag-icon" />
+          </button>
+          <button onClick={() => changeLanguage('de')} title="German">
+            <img src="https://flagcdn.com/w40/de.png" alt="German" width="24" className="flag-icon" />
+          </button>
+          <button onClick={() => changeLanguage('dk')} title="Danish">
+            <img src="https://flagcdn.com/w40/dk.png" alt="Danish" width="24" className="flag-icon" />
+          </button>
         </div>
       </header>
 
@@ -207,6 +215,10 @@ function App() {
         <div className="hero-section">
           <h1>{t('title')}</h1>
           <p className="subtitle">{t('subtitle')}</p>
+          <div className="product-info">
+            <p className="product-desc">{t('product_desc')}</p>
+            <p className="price-tag"><strong>{t('price_tag')}</strong></p>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="booking-form">
@@ -243,11 +255,8 @@ function App() {
                 onChange={handleItemChange}
               >
                 <option value="">{t('select_size')}</option>
-                <option value="S">{t('size_s')}</option>
-                <option value="M">{t('size_m')}</option>
-                <option value="L">{t('size_l')}</option>
-                <option value="XL">{t('size_xl')}</option>
-                <option value="XXL">{t('size_xxl')}</option>
+                <option value="M">{t('size_m_desc')}</option>
+                <option value="XL">{t('size_xl_desc')}</option>
               </select>
             </div>
 
@@ -275,7 +284,7 @@ function App() {
               <ul className="items-list">
                 {items.map((item, index) => (
                   <li key={index} className="item-entry">
-                    <span>{t(`size_${item.size.toLowerCase()}`)} x {item.quantity}</span>
+                    <span>{t(`size_${item.size.toLowerCase()}_desc`)} x {item.quantity}</span>
                     <button type="button" onClick={() => removeItem(index)} className="remove-btn">
                       {t('remove')}
                     </button>

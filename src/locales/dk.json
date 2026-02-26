@@ -1,6 +1,10 @@
 {
-  "title": "Skjortebestilling",
-  "subtitle": "The Forward Exclusive Collection",
+  "title": "THE FORWARD Skjortebestilling",
+  "subtitle": "Limited Edition: Eat in Order",
+  "product_desc": "Innovativt Double Layer stof (64% bomuld, 36% genanvendt polyester). 250g vægt - tykt men åndbart, køligt at røre ved og miljøvenligt (biologisk nedbrydeligt på 4,5 år).",
+  "price_tag": "Pris: ฿690 (Inkluderer fragt)",
+  "size_m_desc": "M: Bryst 40\", Længde 26\"",
+  "size_xl_desc": "XL: Bryst 48\", Længde 28\"",
   "name": "Fulde navn",
   "phone": "Telefonnummer",
   "size": "Skjortestørrelse",
@@ -18,5 +22,11 @@
   "add_item": "Tilføj til liste",
   "items_list": "Valgte varer",
   "remove": "Fjern",
-  "no_items": "Ingen varer tilføjet endnu"
+  "no_items": "Ingen varer tilføjet endnu",
+  "admin_title": "Admin Dashboard",
+  "export_csv": "Download Excel (CSV)",
+  "password": "Adgangskode",
+  "login": "Log ind",
+  "date": "Dato",
+  "order_details": "Ordredetaljer"
 }
