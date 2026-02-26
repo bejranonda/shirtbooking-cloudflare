@@ -44,12 +44,8 @@ npx wrangler pages deploy dist
 
 ## Admin Configuration
 The admin panel is located at `/admin`.
-- **Security**: The password is now managed via an environment variable for security.
-- **Setup**: 
-  1. Go to your Cloudflare Pages Dashboard.
-  2. Navigate to **Settings** -> **Environment Variables**.
-  3. Add a new variable named `ADMIN_PASSWORD` with your chosen secure password.
-  4. Redeploy your project.
+- **Security**: The password has been set as a Cloudflare Secret (`ADMIN_PASSWORD`).
+- **Local Dev**: Use the `.dev.vars` file for local development.
 
 ## Project Structure
 - `src/`: React frontend source code.
