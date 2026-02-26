@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Shirt, Phone, User, MapPin, CheckCircle, Globe, Youtube, Facebook, Download, Lock, RefreshCw } from 'lucide-react';
+import { Shirt, Phone, User, MapPin, CheckCircle, Globe, Youtube, Facebook, Download, Lock, RefreshCw, CreditCard } from 'lucide-react';
 import './App.css';
 
 function AdminPanel() {
@@ -218,7 +218,10 @@ function App() {
           <p className="subtitle">{t('subtitle')}</p>
           <div className="product-info">
             <p className="product-desc">{t('product_desc')}</p>
-            <p className="price-tag"><strong>{t('price_tag')}</strong></p>
+            <p className="price-tag">
+              <CreditCard size={20} />
+              <strong>{t('price_tag')}</strong>
+            </p>
           </div>
         </div>
 
