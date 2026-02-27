@@ -29,5 +29,22 @@
   "password": "Passwort",
   "login": "Anmelden",
   "date": "Datum",
-  "order_details": "Bestelldetails"
+  "order_details": "Bestelldetails",
+  "track_title": "Bestellung verfolgen",
+  "track_subtitle": "Geben Sie Ihre Daten ein, um den Status Ihrer Bestellung zu überprüfen",
+  "track_search": "Suchen",
+  "track_phone": "Telefonnummer",
+  "track_name": "Vollständiger Name",
+  "track_no_results": "Keine Bestellungen gefunden. Bitte überprüfen Sie Ihre Daten und versuchen Sie es erneut.",
+  "track_results": "Ihre Bestellungen",
+  "track_your_order": "Bestellung verfolgen",
+  "status": "Status",
+  "status_pending": "Ausstehend",
+  "status_confirmed": "Bestätigt",
+  "status_shipped": "Versendet",
+  "status_delivered": "Geliefert",
+  "update_status": "Aktualisieren",
+  "status_updated": "Status erfolgreich aktualisiert",
+  "back_to_home": "Zurück zur Startseite",
+  "order_id": "Bestellung #"
 }

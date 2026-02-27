@@ -29,5 +29,22 @@
   "password": "Password",
   "login": "Login",
   "date": "Date",
-  "order_details": "Order Details"
+  "order_details": "Order Details",
+  "track_title": "Track Your Order",
+  "track_subtitle": "Enter your details to check your order status",
+  "track_search": "Search",
+  "track_phone": "Phone Number",
+  "track_name": "Full Name",
+  "track_no_results": "No orders found. Please check your details and try again.",
+  "track_results": "Your Orders",
+  "track_your_order": "Track Your Order",
+  "status": "Status",
+  "status_pending": "Pending",
+  "status_confirmed": "Confirmed",
+  "status_shipped": "Shipped",
+  "status_delivered": "Delivered",
+  "update_status": "Update",
+  "status_updated": "Status updated successfully",
+  "back_to_home": "Back to Home",
+  "order_id": "Order #"
 }

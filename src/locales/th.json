@@ -29,5 +29,22 @@
   "password": "รหัสผ่าน",
   "login": "เข้าสู่ระบบ",
   "date": "วันที่",
-  "order_details": "รายละเอียดการสั่งซื้อ"
+  "order_details": "รายละเอียดการสั่งซื้อ",
+  "track_title": "ติดตามคำสั่งซื้อ",
+  "track_subtitle": "กรอกข้อมูลเพื่อตรวจสอบสถานะคำสั่งซื้อของคุณ",
+  "track_search": "ค้นหา",
+  "track_phone": "เบอร์โทรศัพท์",
+  "track_name": "ชื่อ-นามสกุล",
+  "track_no_results": "ไม่พบคำสั่งซื้อ กรุณาตรวจสอบข้อมูลแล้วลองอีกครั้ง",
+  "track_results": "คำสั่งซื้อของคุณ",
+  "track_your_order": "ติดตามคำสั่งซื้อ",
+  "status": "สถานะ",
+  "status_pending": "รอดำเนินการ",
+  "status_confirmed": "ยืนยันแล้ว",
+  "status_shipped": "จัดส่งแล้ว",
+  "status_delivered": "ได้รับแล้ว",
+  "update_status": "อัพเดต",
+  "status_updated": "อัพเดตสถานะเรียบร้อยแล้ว",
+  "back_to_home": "กลับหน้าหลัก",
+  "order_id": "คำสั่งซื้อ #"
 }

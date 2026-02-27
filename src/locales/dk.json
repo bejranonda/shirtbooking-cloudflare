@@ -29,5 +29,22 @@
   "password": "Adgangskode",
   "login": "Log ind",
   "date": "Dato",
-  "order_details": "Ordredetaljer"
+  "order_details": "Ordredetaljer",
+  "track_title": "Spor din bestilling",
+  "track_subtitle": "Indtast dine oplysninger for at tjekke din ordrestatus",
+  "track_search": "Søg",
+  "track_phone": "Telefonnummer",
+  "track_name": "Fulde navn",
+  "track_no_results": "Ingen bestillinger fundet. Kontroller venligst dine oplysninger og prøv igen.",
+  "track_results": "Dine bestillinger",
+  "track_your_order": "Spor din bestilling",
+  "status": "Status",
+  "status_pending": "Afventer",
+  "status_confirmed": "Bekræftet",
+  "status_shipped": "Afsendt",
+  "status_delivered": "Leveret",
+  "update_status": "Opdater",
+  "status_updated": "Status opdateret",
+  "back_to_home": "Tilbage til forsiden",
+  "order_id": "Bestilling #"
 }

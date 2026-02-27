@@ -7,5 +7,6 @@ CREATE TABLE IF NOT EXISTS bookings (
   quantity INTEGER NOT NULL,
   address TEXT NOT NULL,
   transfer_ref TEXT,
+  status TEXT NOT NULL DEFAULT 'pending',
   created_at TEXT NOT NULL
 );

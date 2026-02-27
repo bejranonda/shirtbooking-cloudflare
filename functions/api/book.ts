@@ -13,11 +13,11 @@ export async function onRequestPost(context) {
 
     // Insert into D1 using batch
     const stmt = env.DB.prepare(
-      'INSERT INTO bookings (name, phone, email, size, quantity, address, transfer_ref, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
+      'INSERT INTO bookings (name, phone, email, size, quantity, address, transfer_ref, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
     );
 
-    const batch = items.map(item => 
-      stmt.bind(name, phone, email, item.size, item.quantity, address, transferRef || null, new Date().toISOString())
+    const batch = items.map(item =>
+      stmt.bind(name, phone, email, item.size, item.quantity, address, transferRef || null, 'pending', new Date().toISOString())
     );
 
     await env.DB.batch(batch);

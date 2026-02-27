@@ -10,8 +10,9 @@ A high-performance web application for the "Kin Tam Lam Dab" (กินตาม
 - **Mobile Optimized**: Optimized for all devices with specific fixes for mobile input behavior.
 - **Comprehensive Booking Form**: Captures Name, Phone, Email, Size, Quantity, Address, and Payment Reference.
 - **Multiple Item Booking**: Users can add various sizes and quantities to a single order.
-- **Admin Dashboard**: Secured area at `/admin` for order management and real-time monitoring.
-- **One-Click Export**: Export order data to Excel-compatible CSV format including all customer details.
+- **Order Tracking**: Customers can track their order status (Pending/Confirmed/Shipped/Delivered) via `/track` using their phone number and name.
+- **Admin Dashboard**: Secured area at `/admin` for order management, status updates, and real-time monitoring.
+- **One-Click Export**: Export order data (including status) to Excel-compatible CSV format.
 
 ## Tech Stack
 
