@@ -186,9 +186,9 @@ function App() {
   if (submitted) {
     return (
       <div className="success-container">
-        <CheckCircle size={64} color="#1877F2" />
+        <CheckCircle size={80} color="#111" strokeWidth={1} />
         <h1>{t('success')}</h1>
-        <button onClick={() => setSubmitted(false)} className="btn-primary">Back</button>
+        <button onClick={() => setSubmitted(false)} className="submit-btn" style={{ width: 'auto', padding: '16px 40px' }}>Back</button>
       </div>
     );
   }
@@ -201,16 +201,16 @@ function App() {
         </div>
         <div className="lang-switcher">
           <button onClick={() => changeLanguage('th')} title="Thai">
-            <img src="https://flagcdn.com/w40/th.png" alt="Thai" width="24" className="flag-icon" />
+            <img src="https://flagcdn.com/w40/th.png" alt="Thai" width="20" className="flag-icon" />
           </button>
           <button onClick={() => changeLanguage('en')} title="English">
-            <img src="https://flagcdn.com/w40/us.png" alt="English" width="24" className="flag-icon" />
+            <img src="https://flagcdn.com/w40/us.png" alt="English" width="20" className="flag-icon" />
           </button>
           <button onClick={() => changeLanguage('de')} title="German">
-            <img src="https://flagcdn.com/w40/de.png" alt="German" width="24" className="flag-icon" />
+            <img src="https://flagcdn.com/w40/de.png" alt="German" width="20" className="flag-icon" />
           </button>
           <button onClick={() => changeLanguage('dk')} title="Danish">
-            <img src="https://flagcdn.com/w40/dk.png" alt="Danish" width="24" className="flag-icon" />
+            <img src="https://flagcdn.com/w40/dk.png" alt="Danish" width="20" className="flag-icon" />
           </button>
         </div>
       </header>
@@ -222,7 +222,7 @@ function App() {
           <div className="product-info">
             <p className="product-desc">{t('product_desc')}</p>
             <p className="price-tag">
-              <CreditCard size={20} />
+              <CreditCard size={22} strokeWidth={1.5} />
               <strong>{t('price_tag')}</strong>
             </p>
           </div>
@@ -230,7 +230,7 @@ function App() {
 
         <form onSubmit={handleSubmit} className="booking-form">
           <div className="form-group">
-            <label><User size={18} /> {t('name')}</label>
+            <label><User size={16} strokeWidth={2.5} /> {t('name')}</label>
             <input 
               type="text" 
               name="name" 
@@ -242,7 +242,7 @@ function App() {
           </div>
 
           <div className="form-group">
-            <label><Phone size={18} /> {t('phone')}</label>
+            <label><Phone size={16} strokeWidth={2.5} /> {t('phone')}</label>
             <input 
               type="tel" 
               name="phone" 
@@ -254,7 +254,7 @@ function App() {
           </div>
 
           <div className="form-group">
-            <label><Mail size={18} /> {t('email')}</label>
+            <label><Mail size={16} strokeWidth={2.5} /> {t('email')}</label>
             <input 
               type="email" 
               name="email" 
@@ -267,7 +267,7 @@ function App() {
 
           <div className="form-row items-input-row">
             <div className="form-group">
-              <label><Shirt size={18} /> {t('size')}</label>
+              <label><Shirt size={16} strokeWidth={2.5} /> {t('size')}</label>
               <select 
                 name="size" 
                 value={currentItem.size} 
@@ -298,12 +298,12 @@ function App() {
           <div className="items-list-container">
             <h3>{t('items_list')}</h3>
             {items.length === 0 ? (
-              <p className="no-items">{t('no_items')}</p>
+              <p className="no-items" style={{ fontSize: '0.9rem', color: '#999', textAlign: 'center', margin: '10px 0' }}>{t('no_items')}</p>
             ) : (
-              <ul className="items-list">
+              <ul className="items-list" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 {items.map((item, index) => (
                   <li key={index} className="item-entry">
-                    <span>{t(`size_${item.size.toLowerCase()}_desc`)} x {item.quantity}</span>
+                    <span style={{ fontWeight: 500 }}>{t(`size_${item.size.toLowerCase()}_desc`)} x {item.quantity}</span>
                     <button type="button" onClick={() => removeItem(index)} className="remove-btn">
                       {t('remove')}
                     </button>
@@ -314,7 +314,7 @@ function App() {
           </div>
 
           <div className="form-group">
-            <label><MapPin size={18} /> {t('address')}</label>
+            <label><MapPin size={16} strokeWidth={2.5} /> {t('address')}</label>
             <textarea 
               name="address" 
               value={formData.address}
@@ -345,13 +345,13 @@ function App() {
       <footer className="footer">
         <div className="social-links">
           <a href="https://www.youtube.com/@TheFORWARDTH" target="_blank" rel="noopener noreferrer">
-            <Youtube />
+            <Youtube size={20} />
           </a>
           <a href="https://www.facebook.com/TheForwardTH" target="_blank" rel="noopener noreferrer">
-            <Facebook />
+            <Facebook size={20} />
           </a>
           <a href="https://thalay.eu/host/theforward" target="_blank" rel="noopener noreferrer">
-            <Globe />
+            <Globe size={20} />
           </a>
         </div>
         <p>© 2026 The Forward. All rights reserved.</p>

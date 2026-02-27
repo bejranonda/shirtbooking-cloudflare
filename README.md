@@ -1,13 +1,14 @@
-# THE FORWARD - Shirt Booking System
+# THE FORWARD - "Kin Tam Lam Dab" Booking System
 
-A modern, high-performance web application for booking exclusive shirt collections. Built with React, TypeScript, and Cloudflare's serverless stack.
+A high-performance web application for the "Kin Tam Lam Dab" (กินตามลำดับ) Limited Edition shirt collection by The Forward. Built with React, TypeScript, and Cloudflare's serverless stack.
 
 ## Features
 
-- **Modern Premium UI**: Redesigned with a clean, iOS-inspired aesthetic, featuring glassmorphism effects, smooth animations, and a sophisticated color palette.
+- **Luxury Minimalist UI**: A premium designer aesthetic using sophisticated typography (Playfair Display & Montserrat) and a clean monochrome palette.
+- **"Kin Tam Lam Dab" Edition**: Exclusive storytelling integration for the eco-friendly Double Layer fabric collection.
 - **Multilingual Support**: Fully localized in Thai (🇹🇭), English (🇺🇸), German (🇩🇪), and Danish (🇩🇰).
 - **Mobile Optimized**: Optimized for all devices with specific fixes for mobile input behavior.
-- **Comprehensive Booking Form**: Captures Name, Phone, **Email**, Size, Quantity, Address, and Payment Reference.
+- **Comprehensive Booking Form**: Captures Name, Phone, Email, Size, Quantity, Address, and Payment Reference.
 - **Multiple Item Booking**: Users can add various sizes and quantities to a single order.
 - **Admin Dashboard**: Secured area at `/admin` for order management and real-time monitoring.
 - **One-Click Export**: Export order data to Excel-compatible CSV format including all customer details.
