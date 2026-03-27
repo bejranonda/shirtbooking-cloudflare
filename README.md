@@ -23,10 +23,20 @@ A high-performance web application for the "Kin Tam Lam Dab" (กินตาม
 
 ## Getting Started
 
-### Local Development
-1. Install dependencies: `npm install`
-2. Create a `.dev.vars` file for local secrets: `ADMIN_PASSWORD=your_local_password`
-3. Run dev server: `npm run dev`
+### Environment Setup & Local Development
+1. Clone the repository and install dependencies: `npm install`
+2. Create your local environment files based on the template:
+   ```bash
+   cp .env.template .env
+   cp .env.template .dev.vars
+   ```
+3. Fill in the secrets inside your new `.env` and `.dev.vars` files:
+   - `CLOUDFLARE_API_TOKEN`: Your Cloudflare free-tier API token.
+   - `GITHUB_TOKEN`: Your GitHub access token.
+   - `ADMIN_PASSWORD`: Your desired admin dashboard password.
+   - `JWT_SECRET`: A secure random string for authentication.
+   *(Note: Wrangler uses `.dev.vars` for local Cloudflare Pages environment variables, while `.env` might be used for other tooling.)*
+4. Run the development server: `npm run dev`
 
 ### Database Initialization
 Initialize your D1 database using the provided schema:
